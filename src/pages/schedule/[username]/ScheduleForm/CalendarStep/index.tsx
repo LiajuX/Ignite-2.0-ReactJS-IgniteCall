@@ -6,6 +6,7 @@ import dayjs from 'dayjs'
 import { api } from '../../../../../lib/axios'
 
 import { Calendar } from '../../../../../components/Calendar'
+import { Load } from '../../../../../components/Load'
 
 import {
   Container,
@@ -78,17 +79,23 @@ export function CalendarStep({ onSelectDateTime }: CalendarStepProps) {
           </TimePickerHeader>
 
           <TimePickerList>
-            {availability?.possibleTimes.map((hour) => {
-              return (
-                <TimePickerItem
-                  key={hour}
-                  onClick={() => handleSelectTime(hour)}
-                  disabled={!availability.availableTimes.includes(hour)}
-                >
-                  {String(hour).padStart(2, '0')}:00h
-                </TimePickerItem>
-              )
-            })}
+            {availability ? (
+              availability.possibleTimes.map((hour) => {
+                return (
+                  <TimePickerItem
+                    key={hour}
+                    onClick={() => handleSelectTime(hour)}
+                    disabled={!availability.availableTimes.includes(hour)}
+                  >
+                    {String(hour).padStart(2, '0')}:00h
+                  </TimePickerItem>
+                )
+              })
+            ) : (
+              <div>
+                <Load size={56} />
+              </div>
+            )}
           </TimePickerList>
         </TimePicker>
       )}

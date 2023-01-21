@@ -9,6 +9,7 @@ import { CalendarBlank, Clock } from 'phosphor-react'
 import { api } from '../../../../../lib/axios'
 
 import { ConfirmForm, FormActions, FormError, FormHeader } from './styles'
+import { Load } from '../../../../../components/Load'
 
 const confirmFormSchema = z.object({
   name: z
@@ -97,7 +98,7 @@ export function ConfirmStep({
         </Button>
 
         <Button type="submit" disabled={isSubmitting}>
-          Confirmar
+          {isSubmitting ? <Load size={64} /> : 'Confirmar'}
         </Button>
       </FormActions>
     </ConfirmForm>
