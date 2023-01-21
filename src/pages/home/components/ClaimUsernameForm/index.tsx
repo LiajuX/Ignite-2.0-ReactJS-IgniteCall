@@ -5,6 +5,8 @@ import { z } from 'zod'
 import { ArrowRight } from 'phosphor-react'
 import { Button, Text, TextInput } from '@ignite-ui/react'
 
+import { Load } from '../../../../components/Load'
+
 import { Form, FormAnnotation } from './styles'
 
 const claimUsernameFormSchema = z.object({
@@ -47,7 +49,7 @@ export function ClaimUsernameForm() {
         />
 
         <Button size="sm" type="submit" disabled={isSubmitting}>
-          Reservar
+          {isSubmitting ? <Load /> : 'Reservar'}
           <ArrowRight />
         </Button>
       </Form>

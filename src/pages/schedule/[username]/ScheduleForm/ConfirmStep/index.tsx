@@ -98,7 +98,7 @@ export function ConfirmStep({
         </Button>
 
         <Button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? <Load size={64} /> : 'Confirmar'}
+          {isSubmitting ? <Load /> : 'Confirmar'}
         </Button>
       </FormActions>
     </ConfirmForm>

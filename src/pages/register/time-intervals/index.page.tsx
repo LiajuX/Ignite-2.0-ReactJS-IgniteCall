@@ -18,6 +18,8 @@ import { api } from '../../../lib/axios'
 import { getWeekDays } from '../../../utils/get-week-days'
 import { convertTimeStringToMinutes } from '../../../utils/convert-time-string-to-minutes'
 
+import { Load } from '../../../components/Load'
+
 import { Container, Header } from '../styles'
 import {
   FormError,
@@ -175,7 +177,7 @@ export default function TimeIntervals() {
           )}
 
           <Button type="submit" disabled={isSubmitting}>
-            Próximo passo
+            {isSubmitting ? <Load /> : 'Próximo passo'}
             <ArrowRight />
           </Button>
         </IntervalBox>

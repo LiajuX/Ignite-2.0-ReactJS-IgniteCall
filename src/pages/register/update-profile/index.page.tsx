@@ -20,6 +20,8 @@ import { api } from '../../../lib/axios'
 
 import { buildNextAuthOptions } from '../../api/auth/[...nextauth].api'
 
+import { Load } from '../../../components/Load'
+
 import { ProfileBox } from './styles'
 import { Container, Header } from '../styles'
 
@@ -81,7 +83,7 @@ export default function UpdateProfile() {
           </label>
 
           <Button type="submit" disabled={isSubmitting}>
-            Finalizar
+            {isSubmitting ? <Load /> : 'Finalizar'}
             <ArrowRight />
           </Button>
         </ProfileBox>

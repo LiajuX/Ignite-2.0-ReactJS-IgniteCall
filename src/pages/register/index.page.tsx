@@ -10,6 +10,8 @@ import { Button, Heading, MultiStep, Text, TextInput } from '@ignite-ui/react'
 
 import { api } from '../../lib/axios'
 
+import { Load } from '../../components/Load'
+
 import { Container, Form, FormError, Header } from './styles'
 
 const registerFormSchema = z.object({
@@ -99,7 +101,7 @@ export default function Register() {
           <FormError size="sm">{errors.name?.message}</FormError>
 
           <Button type="submit" disabled={isSubmitting}>
-            Próximo passo
+            {isSubmitting ? <Load /> : 'Próximo passo'}
             <ArrowRight />
           </Button>
         </Form>
